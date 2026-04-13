@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espaço Floresta | Book de Eventos</title>
+    <!-- Modern Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Lato"', 'sans-serif'],
+                    },
+                    colors: {
+                        floresta: {
+                            50: "#f2f8f5",
+                            100: "#e1efe8",
+                            200: "#c3decfa",
+                            600: "#2f6a53",
+                            800: "#214438",
+                            900: "#1c382f",
+                        },
+                        gold: {
+                            400: "#fbbf24",
+                            500: "#d9ae4c",
+                            600: "#d97706",
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #121A16; /* Deep forest dark mode */
+            color: #f2f8f5;
+        }
+
+        /* Hero Image Parallax Simulation */
+        .hero-banner {
+            background-image: linear-gradient(to bottom, rgba(18,26,22,0.4), rgba(18,26,22,1)), url('fotos%20para%20o%20book/capa.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 80vh;
+        }
+
+        /* Glassmorphism Classes */
+        .glass {
+            background: rgba(33, 68, 56, 0.25);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Masonry Grid Simulation */
+        .masonry {
+            column-count: 1;
+            column-gap: 1.5rem;
+        }
+        @media (min-width: 640px) { .masonry { column-count: 2; } }
+        @media (min-width: 1024px) { .masonry { column-count: 3; } }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+
+        .masonry-item img {
+            width: 100%;
+            display: block;
+            border-radius: 0.75rem;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .masonry-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .masonry-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 40%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .masonry-item:hover::after {
+            opacity: 1;
+        }
+
+        .masonry-content {
+            position: absolute;
+            bottom: -2rem;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            z-index: 10;
+            transition: all 0.4s ease;
+            opacity: 0;
+        }
+
+        .masonry-item:hover .masonry-content {
+            bottom: 0;
+            opacity: 1;
+        }
+
+        /* Glowing accents */
+        .gold-glow {
+            text-shadow: 0 0 15px rgba(217, 174, 76, 0.5);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass top-0 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="font-serif text-2xl font-bold tracking-wider text-gold-500">ESPAÇO FLORESTA</h1>
+            <div class="hidden md:flex space-x-8 font-sans text-sm tracking-widest uppercase text-gray-300">
+                <a href="#experiencia" class="hover:text-gold-500 transition-colors">A Experiência</a>
+                <a href="#detalhes" class="hover:text-gold-500 transition-colors">Detalhes</a>
+                <a href="#galeria" class="hover:text-gold-500 transition-colors">O Book</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-banner flex flex-col items-center justify-center text-center px-4 pt-20">
+        <h2 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-6 gold-glow tracking-wide text-white">O Cenário <br/> Perfeito</h2>
+        <p class="font-sans text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-light">
+            Onde a natureza encontra a sofisticação. Transforme o seu evento em uma lembrança inesquecível envolto pelo charme da verdadeira essência natural.
+        </p>
+        <a href="#galeria" class="mt-12 px-8 py-4 bg-transparent border border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-white transition-all duration-300 font-sans tracking-widest uppercase text-sm cursor-pointer rounded">
+            Explorar o Book
+        </a>
+    </header>
+
+    <!-- Highlights Section -->
+    <section id="detalhes" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-12 text-center md:text-left">
+            <div class="glass p-10 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                <h3 class="font-serif text-2xl text-gold-500 mb-4">Arquitetura Integrada</h3>
+                <p class="text-gray-400 font-sans leading-relaxed">
+                    Nossa passarela de madeira cria uma entrada triunfal, mesclando harmonicamente elegância arquitetônica e imponência tátil.
+                </p>
+            </div>
+            <div class="glass p-10 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                <h3 class="font-serif text-2xl text-gold-500 mb-4">Estética Refinada</h3>
+                <p class="text-gray-400 font-sans leading-relaxed">
+                    Mobílias luxuosas, desde cadeiras de bambu até design tiffany, preparadas para encantar seus convidados e elevar o padrão do evento.
+                </p>
+            </div>
+            <div class="glass p-10 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                <h3 class="font-serif text-2xl text-gold-500 mb-4">Arranjos Especiais</h3>
+                <p class="text-gray-400 font-sans leading-relaxed">
+                    Personalização minuciosa com arranjos de mesas desenhados para compor do estilo minimalista ao mais grandioso.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Masonry Gallery -->
+    <section id="galeria" class="py-20 px-4 max-w-[1400px] mx-auto min-h-screen">
+        <div class="text-center mb-16">
+            <h2 class="font-serif text-4xl md:text-5xl text-white mb-4">O Nosso Book</h2>
+            <div class="w-24 h-1 bg-gold-500 mx-auto rounded"></div>
+            <p class="mt-6 text-gray-400 font-sans max-w-3xl mx-auto">Percorra a curadoria das nossas melhores imagens, refletindo todas as adaptações e versatilidades que o Espaço Floresta tem a oferecer para diversos eventos.</p>
+        </div>
+
+        <div class="masonry">
+            <!-- Dynamic Category: Destaques -->
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/capa%202.jpeg" alt="Capa Alternativa" loading="lazy">
+                <div class="masonry-content">
+                    <span class="text-gold-400 font-sans text-xs font-bold tracking-widest uppercase">Fachada</span>
+                    <h3 class="font-serif text-2xl text-white mt-1">Recepção Majestosa</h3>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/minimalista.jpeg" alt="Estilo Minimalista" loading="lazy">
+                <div class="masonry-content">
+                    <span class="text-gold-400 font-sans text-xs font-bold tracking-widest uppercase">Conceito</span>
+                    <h3 class="font-serif text-2xl text-white mt-1">Design Minimalista</h3>
+                </div>
+            </div>
+            
+            <!-- Dynamic Category: Arranjos e Mesas -->
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/arranjo%20de%20mesa.jpeg" alt="Arranjo de Mesa" loading="lazy">
+                <div class="masonry-content">
+                    <span class="text-gold-400 font-sans text-xs font-bold tracking-widest uppercase">Mesas</span>
+                    <h3 class="font-serif text-2xl text-white mt-1">Arranjo Clássico</h3>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/6%20arranjos.jpeg" alt="6 Arranjos" loading="lazy">
+                <div class="masonry-content">
+                    <span class="text-gold-400 font-sans text-xs font-bold tracking-widest uppercase">Decoração</span>
+                    <h3 class="font-serif text-2xl text-white mt-1">Composição Múltipla</h3>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/4%20arranjos.jpeg" alt="4 Arranjos" loading="lazy">
+                <div class="masonry-content">
+                    <span class="text-gold-400 font-sans text-xs font-bold tracking-widest uppercase">Decoração</span>
+                    <h3 class="font-serif text-2xl text-white mt-1">Detalhes Florais</h3>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/arranjo%20de%20mesa%20w2.jpeg" alt="Arranjo Especial" loading="lazy">
+                <div class="masonry-content">
+                    <span class="text-gold-400 font-sans text-xs font-bold tracking-widest uppercase">Mesas</span>
+                    <h3 class="font-serif text-2xl text-white mt-1">Arranjo Exclusivo</h3>
+                </div>
+            </div>
+
+            <!-- Dynamic Category: Mobiliário e Estrutura -->
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/cadeira%20de%20bambu.jpeg" alt="Cadeira de Bambu" loading="lazy">
+                <div class="masonry-content">
+                    <span class="text-gold-400 font-sans text-xs font-bold tracking-widest uppercase">Mobiliário</span>
+                    <h3 class="font-serif text-2xl text-white mt-1">Cadeiras de Bambu</h3>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/cadeira%20tiffany.jpeg" alt="Cadeira Tiffany" loading="lazy">
+                <div class="masonry-content">
+                    <span class="text-gold-400 font-sans text-xs font-bold tracking-widest uppercase">Acabamento</span>
+                    <h3 class="font-serif text-2xl text-white mt-1">Padrão Tiffany</h3>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/arm%C3%A1rio%20de%20doces%20_%20lembrancinhas.jpeg" alt="Armário de Doces" loading="lazy">
+                <div class="masonry-content">
+                    <span class="text-gold-400 font-sans text-xs font-bold tracking-widest uppercase">Estrutura</span>
+                    <h3 class="font-serif text-2xl text-white mt-1">Estação de Doces</h3>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/passarela%20de%20madeira.jpeg" alt="Passarela Corredor" loading="lazy">
+                <div class="masonry-content">
+                    <span class="text-gold-400 font-sans text-xs font-bold tracking-widest uppercase">Ambientação</span>
+                    <h3 class="font-serif text-2xl text-white mt-1">Passarela de Madeira</h3>
+                </div>
+            </div>
+
+            <!-- Portfolio Mix (UUID files) -->
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/02c4cb6c-b24c-4d2c-832e-9e5364053023.jpeg" alt="Evento" loading="lazy">
+                <div class="masonry-content">
+                    <span class="text-gold-400 font-sans text-xs font-bold tracking-widest uppercase">Aconchego</span>
+                    <h3 class="font-serif text-2xl text-white mt-1">Celebração Serena</h3>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/0a2fad50-ef33-4e5d-8f46-fd6843af61e1.jpeg" alt="Evento" loading="lazy">
+                <div class="masonry-content">
+                    <span class="text-gold-400 font-sans text-xs font-bold tracking-widest uppercase">Luxo</span>
+                    <h3 class="font-serif text-2xl text-white mt-1">Toques Sutis</h3>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/0ec98504-ad9b-4d40-985f-74540c911ed1.jpeg" alt="Evento" loading="lazy">
+                <div class="masonry-content">
+                    <span class="text-gold-400 font-sans text-xs font-bold tracking-widest uppercase">Contraste</span>
+                    <h3 class="font-serif text-2xl text-white mt-1">Design Atemporal</h3>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/1f8e925a-8ca8-4684-b4e4-5b24d0125231.jpeg" alt="Evento" loading="lazy">
+                <div class="masonry-content">
+                    <span class="text-gold-400 font-sans text-xs font-bold tracking-widest uppercase">Aconchego</span>
+                    <h3 class="font-serif text-2xl text-white mt-1">Vista da Celebração</h3>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/29cfdc3d-e507-4b9d-90f6-0a11619fac99.jpeg" alt="Evento" loading="lazy">
+                <div class="masonry-content">
+                    <span class="text-gold-400 font-sans text-xs font-bold tracking-widest uppercase">Detalhes</span>
+                    <h3 class="font-serif text-2xl text-white mt-1">Luzes e Sombras</h3>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/2c920428-875b-4570-8ca2-6e47aebcaa02.jpeg" alt="Evento" loading="lazy">
+            </div>
+             <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/58d7aee0-2d49-4207-bac2-2a99f5a3cede.jpeg" alt="Evento" loading="lazy">
+            </div>
+             <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/819e87f4-ec27-401f-8563-781c3992563e.jpeg" alt="Evento" loading="lazy">
+            </div>
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/8eeacec7-d800-4011-8091-0ac292a51100.jpeg" alt="Evento" loading="lazy">
+            </div>
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/9757ceac-ff8c-4b19-a54c-4f5d5f0188ae.jpeg" alt="Evento" loading="lazy">
+            </div>
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/a3641cad-b78b-47de-a879-6564682c0b6f.jpeg" alt="Evento" loading="lazy">
+            </div>
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/ab2922c1-88b0-416c-b38a-4a99116eead4.jpeg" alt="Evento" loading="lazy">
+            </div>
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/c99357f8-b62a-472f-a86f-07bc88ef7b13.jpeg" alt="Evento" loading="lazy">
+            </div>
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/db2fd4f8-982a-445f-a030-84f9a8c06bb7.jpeg" alt="Evento" loading="lazy">
+            </div>
+            <div class="masonry-item">
+                <img src="fotos%20para%20o%20book/e788d938-f51f-4c7c-b4a4-5c5ccc32a3b0.jpeg" alt="Evento" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/80 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="font-serif text-3xl font-bold text-gray-200 mb-6">Pronto para agendar sua visita?</h2>
+            <p class="text-gray-400 font-sans max-w-2xl mx-auto mb-8">Venha conhecer pessoalmente todos os detalhes e encantos que criamos para elevar o seu grande evento a uma memória eternizada.</p>
+            <p class="text-gold-500 font-sans tracking-widest text-sm">&copy; 2026 Espaço Floresta. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
